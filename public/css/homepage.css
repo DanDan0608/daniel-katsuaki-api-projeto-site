@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Domine&family=Oswald:wght@300&display=swap");
+
+/* CSS do cabeçalho | Home */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../Imagens/img-home/homebg.jpg") no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* text-rendering: optimizeLegibility; */
+
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  /* background:linear-gradient(rgb(161, 97, 161),rgb(161,97,161,0.4), rgb(161, 97, 161)); */
+}
+
+.container-geral {
+  background-color: rgba(36, 150, 83, 0.7);
+  border-radius: 50px;
+  border: 7px solid rgba(36, 150, 83, 0.7);
+  box-shadow: 31px 24px 19px rgb(36 150 83 / 40%);
+  margin-top: 50px;
+}
+
+.geral {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+}
+.container-respiro {
+  max-width: 90%;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.geral img {
+  width: 150px;
+  float: left;
+}
+
+header {
+  height: 100vh;
+  /* position: relative; */
+  overflow: hidden;
+  font-weight: bold;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../Imagens/img-home/homebg.jpg") no-repeat;
+    width: 100%;
+    background-size: cover; */
+  padding-bottom: 100px;
+}
+
+.navbar {
+  display: flex;
+  float: right;
+  list-style: none;
+  /* margin-top: -20px; */
+  /* margin-top: -50px; */
+  align-items: center;
+  padding-top: 20px;
+}
+
+.navbar li {
+  /* display: flex; */
+  display: inline-block;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 20px;
+  /* font-family: 'Domine', serif; */
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+.navbar li a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: lime;
+}
+
+.slogan {
+  padding-top: 10%;
+  display: flex;
+  /* margin: auto; */
+  height: 40%;
+  /* height: 100%; */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw;
+  /* font-size: 120px; */
+  color: #fff;
+  font-family: "Domine", serif;
+  /* font-family: 'Oswald', sans-serif; */
+}
+
+.box {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.box div {
+  margin: 100px 10px 0 0;
+  border: 2px solid white;
+  background-color: rgba(36, 150, 83, 0.7);
+  border-radius: 40px;
+}
+
+@media (max-width: 1023px) {
+  .box {
+    flex-direction: column;
+  }
+
+  .box div {
+    margin: 10px;
+  }
+}

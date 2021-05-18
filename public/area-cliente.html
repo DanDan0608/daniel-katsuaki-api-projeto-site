@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/scriptchartjs.js"></script>
+    <link rel="stylesheet" href="css/area-cliente.css">
+    <title>Alfa Company | Área do Cliente</title>
+</head>
+<body>
+    <header>
+            <div id="apresentacao">
+                <img class="logo" src="Imagens/img-area-cliente/alfa-logo.png" alt="alfa-logo.png">
+                <br><br><br>
+                <div id="area">
+                    <div id="caixa">
+                        <div>
+                            <br>
+                            <img src="Imagens/img-area-cliente/alfa-icone.png" alt="alfa-icone.png">
+                            <br>
+                            <h3>Seus Sensores:</h3>
+                        </div>
+                        <div class="buttons">
+                            <button onclick="mostrartemperatura()">Temperatura</button> <br><br><br>
+                            <button onclick="mostrarumidade()">Umidade</button> <br><br><br>
+                            <button onclick="tela()">Tela Inicial</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="graficos_alfa" style="display: none;">
+                <h1>GRAFICO DE <span id="titulo_grafico"></span></h1>
+            <!-- <section>
+                <h2>Média: <label id='average'>0.00</label></h2>
+                <h2>Média Hora: <label id='averageHour'>0.00</label></h2>
+            </section> -->
+            <section style="width: 100%;">
+                <canvas style="height: 100px; display: none;" id="Gráfico_Temperatura"></canvas>
+                <canvas style="height: 100px; display: none;" id="Gráfico_Umidade"></canvas>
+            </section>
+            <!-- <section  id="canvas_temp" style="width:100%;">
+                
+            <section>
+            <section id="canvas_umid" style="width:100%;">
+                
+            </section> -->
+            <br>
+            <br>
+            <div>
+                <b>Reporte seu problema:</b><br>
+                <textarea class="reporte-problema" cols="30" rows="10" 
+                placeholder="Insira sua mensagem aqui" maxlength="500"></textarea>
+                <br>
+                <button><b>Enviar</b></button>
+            </div>
+            <br>
+            </div>
+    </header>
+</body>
+</html>
+
+<script>    
+
+var ctx = document.getElementById('Gráfico_Temperatura').getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['12:00','13:00','14:00','15:00','16:00','17:00'],
+        datasets: [{
+            label: 'TEMPERATURA x HORA',
+            fill: true,
+            data: [12, 15.5, 17, 17, 16, 16.5],
+            backgroundColor: [
+
+                'rgba(173, 255, 47, 0.6)'
+
+            ],
+
+            borderColor: [
+                'green'
+
+            ],
+            
+            borderWidth: 2.5
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        animations: {
+      y: {
+        easing: 'easeInOutElastic',
+        from: (ctx) => {
+          if (ctx.type === 'data') {
+            if (ctx.mode === 'default' && !ctx.dropped) {
+              ctx.dropped = true;
+              return 0;
+            }
+          }
+        }
+      }
+    }
+    }
+});
+
+var contexto = document.getElementById('Gráfico_Umidade').getContext('2d');
+
+var myChart = new Chart(contexto, {
+    type: 'line',
+    data: {
+        labels: ['12:00','13:00','14:00','15:00','16:00','17:00'],
+        datasets: [{
+            label: 'UMIDADE(%) x HORA',
+            fill: true,
+            data: [58, 60, 62, 63, 63, 62],
+            backgroundColor: [
+                'rgba(173, 255, 47, 0.6)'
+            ],
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 2.5
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        animations: {
+      y: {
+        easing: 'easeInOutElastic',
+        from: (contexto) => {
+          if (contexto.type === 'data') {
+            if (contexto.mode === 'default' && !contexto.dropped) {
+              contexto.dropped = true;
+              return 0;
+            }
+          }
+        }
+      }
+    }
+    }
+});
+    function mostrartemperatura(){
+        graficos_alfa.style.display="block";
+        titulo_grafico.innerHTML="TEMPERATURA:" 
+        Gráfico_Temperatura.style.display="block";
+        Gráfico_Umidade.style.display="none";     
+    }
+
+    function mostrarumidade(){
+        titulo_grafico.innerHTML="UMIDADE:"
+        graficos_alfa.style.display="block";
+        Gráfico_Temperatura.style.display="none";
+        Gráfico_Umidade.style.display="block";  
+        
+        //     graficoAlfadois.style.display="block";
+     //     titleGraf.innerHTML="GRÁFICO DE TEMPERATURA:"
+     // POR ENQUANTO NÃO TEMOS.
+    }
+
+    function tela(){
+
+    window.location.href = "index.html";
+
+    }
+</script>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./scripts/login.js"></script>
+    <title>Alfa Company</title>
+</head>
+
+<body>
+
+    <!-- <div class="cabecalho">
+        <div class="box_um">
+            <div class="box_casa">
+                <a href="homepage.html">
+                    <img onclick="home" class="img-home" src="./Imagens/img-login/casinha.png" alt="casinha.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="login_cadastro">
+        <div class="box_dois">
+            <div id="login" class="box_login">
+                <img class="logo" src="./Imagens/img-login/alfa-novo.png" alt="alfa-novo.png">
+                <p class="instrucao"><i>Informe seu usuário e senha:</i></p>
+                <div class="config_inputs">
+                    <img src="./Imagens/img-login/user--v3.png" alt="user--v3.png">
+                    <input type="text" id="usuario" placeholder="Usuário">
+                </div>
+                <br>
+                <div class="config_inputs">
+                    <img src="./Imagens/img-login/lock-2.png" alt="user--v3.png">
+                    <input type="password" id="senha_login" placeholder="Senha">
+                    <img id="olho_login" onclick="show_login()" src="./Imagens/img-login/777494-200.png">
+                </div>
+                <div>
+                    <button class="entrar" onclick="entrar()">Entrar!</button>
+                </div>
+                <br>
+                <div onclick="cadastre()" class="cadastre-se"><u>Criar conta</u></div>
+            </div>
+
+
+            <div id="cadastro" class="box_cadastro" style="display: none;">
+                <img class="logo" src="./Imagens/img-login/alfa-novo.png" alt="alfa-novo.png">
+                <p class="instrucao"><i>Crie uma conta com a <span>Alfa</span> Company:</i></p>
+                <div class="config_inputs">
+                    <img src="./Imagens/img-login/user--v3.png" alt="user--v3.png">
+                    <input id="email" type="text" placeholder="Informe um e-mail">
+                </div>
+                <br>
+                <div class="config_inputs">
+                    <img src="./Imagens/img-login/lock-2.png" alt="user--v3.png">
+                    <input id="senha_cadastro" type="password" placeholder="Informe uma senha">
+                    <img id="olho_cadastro" onclick="show_cadastro()" class="show"
+                        src="./Imagens/img-login/777494-200.png">
+                </div>
+                <div>
+                    <button class="entrar" onclick="criar()">Cadastrar!</button>
+                </div>
+                <br>
+                <div onclick="tenho_conta()" class="cadastre-se"><u>Já possuo uma conta!</u></div>
+            </div>
+        </div>
+    </div> -->
+
+    <a href="index.html">
+        <img onclick="home" class="img-home" src="./Imagens/img-login/casinha_dois.png" alt="casinha">
+    </a>
+
+    <div class="container-signup">
+
+        <form id="form_cadastro" class="signup" method="post" onsubmit="return cadastrar()">
+            <img class="logo" src="Imagens/img-home/logo.png" alt="">
+            <br>
+            <span class="frase">Entre com os seus dados:</span>
+            <br>
+            <input type="text" name="empresa" placeholder="EMPRESA:">
+            <input type="text" name="email" placeholder="E-MAIL:">
+            <input type="text" name="telefone" placeholder="TELEFONE:">
+            <input type="text" name="cnpj" placeholder="CNPJ:">
+            <input type="text" name="cep" placeholder="CEP:">
+            <input type="password" name="senha" placeholder="SENHA:">
+            <br>
+            <button class="botao" id="btn_entrar">Cadastrar</button>
+            <br>
+            <button class="botao" type="button" onclick="exibirLogin()">Já tenho cadastro</button>
+            <br><br>
+        </form>
+
+        <form id="form_login" class="login" method="post" onsubmit="return entrar()">
+            <img class="logo" src="Imagens/img-home/logo.png" alt="">
+            <br>
+            <span class="frase">Entre com os seus dados:</span>
+            <br>
+            <input type="text" name="cnpj" placeholder="CNPJ:">
+            <input type="password" name="senha" placeholder="SENHA:">
+            <br>
+            <button class="botao" id="btn_entrar" type="submit">Entrar</button>
+            <br>
+            <button class="botao" type="button" onclick="exibirCadastro()">Criar uma conta</button>
+            <br><br>
+        </form>
+
+        <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+            Erro no cadastro
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'area-cliente.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+
+            if (response.ok) {
+
+                window.location.href = 'login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        div_erro.style.display = 'none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        div_erro.style.display = 'block';
+    }
+
+</script>

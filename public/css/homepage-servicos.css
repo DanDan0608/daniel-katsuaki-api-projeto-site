@@ -1,0 +1,99 @@
+/* CSS do serviço */
+
+.container-servico {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    /* border-bottom: 5px double rgba(35,164,13,0.58);
+    border-radius: 0px 0px 40px 40px; */
+  
+  }
+
+  .container-servico h1{
+
+    color: white;
+    padding: 2% 0 2% 0;
+    font-size: 30px;
+
+  }
+  
+  #oque-fazemos {
+    width: 40%;
+  }
+  
+  .conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+  }
+  
+  .paragrafo-esquerdo {
+    color: white;
+    font-size: 26px;
+    line-height: 33px;
+    width: 40%;
+    text-align: left;
+    font-family: "Domine", serif;
+  }
+  
+  .paragrafo-direito {
+    color: white;
+    font-size: 26px;
+    line-height: 33px;
+    width: 40%;
+    text-align: left;
+    font-family: "Domine", serif;
+  }
+  
+  .container h3 {
+    color:white;
+    font-size: 26px;
+    line-height: 33px;
+    text-align: left;
+    font-family: "Oswald", sans-serif;
+  }
+  
+  #workflow {
+    width: 95%;
+    justify-content: center;
+    border-radius: 150px;
+  }
+  
+  /* Low resolutions screens and mobile screens*/
+  
+  @media (max-width: 1023px) {
+    #oque-fazemos {
+      width: 90%;
+    }
+    .paragrafo_esquerdo {
+      color:white;
+      font-size: 26px;
+      line-height: 33px;
+      width: fit-content;
+      text-align: center;
+      font-family: "Domine", serif;
+    }
+    .paragrafo_direito {
+      color:white;
+      font-size: 26px;
+      line-height: 33px;
+      width: fit-content;
+      text-align: center;
+      font-family: "Domine", serif;
+    }
+    .container h3 {
+      color:white;
+      font-size: 26px;
+      line-height: 33px;
+      text-align: center;
+      font-family: "Oswald", sans-serif;
+    }
+    #workflow {
+      width: 95%;
+      justify-content: center;
+    }
+  }

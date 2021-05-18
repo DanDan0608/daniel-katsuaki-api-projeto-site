@@ -1,0 +1,130 @@
+
+/* CSS do SOBRE */
+
+/* .section-sobre{
+
+  background-color: rgba(36, 150, 83, 0.7);
+  
+} */
+
+.container-sobre{
+
+    padding-top: 40px;
+    text-align: center;
+  
+  }
+  
+  .sobre {
+    display: inline-block;
+    color:white;
+    font-family: "Oswald", sans-serif;
+    font-size: 60px;
+    line-height: 58px;
+    text-align: left;
+    margin-top: 70px;
+    margin-left: 1%;
+  }
+  
+  span img {
+    width: 180px;
+    height: 183px;
+    margin-left: 250px;
+    display: inline-block;
+    margin-top: -250px;
+  }
+  
+  .texto {
+    color:white;
+    font-family: "Oswald", sans-serif;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: left;
+    margin-left: 1%;
+  }
+  
+  .alfaceiro img {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .caixa {
+    display: flex;
+    color: #ffffff;
+    font-family: "Oswald", sans-serif;
+    font-size: 23px;
+    line-height: 29px;
+    text-align: center;
+    height: auto;
+    justify-content: center;
+  }
+
+  
+/* CSS do glider.js */
+
+.container-glider {
+  width: 40%;
+  margin-left: 5%;
+  position: relative;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.glider {
+  padding: 20px 0;
+}
+
+.card {
+
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 0 10px;
+  padding: 40px 10px 40px 10px;
+  height: 60%;
+  border-radius: 20px;
+  text-align: center;
+
+}
+.card h1 {
+
+  font-size: 40px;
+  color: rgb(7, 182, 86);
+
+}
+
+.container-glider button {
+  padding-top: 15%;
+  color: white;
+}
+
+.container-glider img {
+    height: 200px;
+    padding-bottom: 1%;
+}
+
+/* CSS integrante */
+  
+  .titulo-sobre {
+    text-align: center;
+    font-size: 34px;
+    padding-top: 5%;
+    color:white;
+  }
+  
+  .img-time {
+    height: 115px;
+  }
+  
+  .integrante {
+    padding: 15px;
+  }
+  
+  .funcao-integrantes {
+    color:white;
+    font-size: 20px;
+  }
+  
+  .nome-integrantes {
+    color:white;
+    font-size: 20px;
+  }
